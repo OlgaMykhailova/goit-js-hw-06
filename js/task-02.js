@@ -18,3 +18,4 @@ return liEl;
 const ulEl = document.querySelector('#ingredients');
 
 ulEl.append(...elements);
+
