@@ -1,7 +1,7 @@
 const inputEl = document.querySelector('#font-size-control');
 const spanEl = document.querySelector('#text');
 
-inputEl.addEventListener('change', onValueChange);
+inputEl.addEventListener('input', onValueChange);
 
 function onValueChange() {
     spanEl.style.fontSize = `${this.value}px`;
