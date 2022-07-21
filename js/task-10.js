@@ -4,24 +4,14 @@ function getRandomHexColor() {
 
 const inputEl = document.querySelector("#controls").firstElementChild;
 
-inputEl.addEventListener("blur", userInput);
+inputEl.addEventListener("change", userInput);
 
-const parameters = [];
+let amount = 0;
 
 function userInput() {
-  const amount = document.querySelector("#controls").firstElementChild.value;
-
-  for (let i = 0; i < amount; i += 1) {
-    parameters[i] = {
-      width: `${30 + 10 * i}px`,
-      height: `${30 + 10 * i}px`,
-      backgroundColor: getRandomHexColor(),
-    };
-    parameters.push(parameters[i]);
-    console.log(parameters[i])
+amount = Number(document.querySelector("#controls").firstElementChild.value);
+console.log(amount);
   }
-  console.log(parameters);
-}
 
 const boxesEl = document.querySelector("#boxes");
 
@@ -29,17 +19,20 @@ const createButtonEl = document.querySelector("[data-create]");
 
 createButtonEl.addEventListener("click", createBoxes);
 
-function createBoxes() {
-  const elements = parameters.map((param) => {
+function createBoxes(amount) {
+  const elements = [];
+  console.log(amount)
+  for (let i = 0; i < amount; i += 1) {
     const divEl = document.createElement("div");
-    divEl.style.width = param.width;
-    divEl.style.height = param.height;
-    divEl.style.backgroundColor = param.backgroundColor;
-    return divEl;
-  });
+    divEl.style.width = `${30 + 10 * i}px`;
+    divEl.style.height = `${30 + 10 * i}px`;
+    divEl.style.backgroundColor = getRandomHexColor();
+    elements.push(divEl);
+    console.log(divEl)
+      }
   boxesEl.append(...elements);
-  parameters.splice(0,parameters.length);
-  // console.log(parameters)
+  elements.splice(0,elements.length);
+  console.log(elements)
 }
 
 const destroyButtonEl = document.querySelector("[data-destroy]");
