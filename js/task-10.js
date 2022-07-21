@@ -2,22 +2,13 @@ function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
 
-const inputEl = document.querySelector("#controls").firstElementChild;
-
-inputEl.addEventListener("change", userInput);
-
-let amount = 0;
-
-function userInput() {
-amount = Number(document.querySelector("#controls").firstElementChild.value);
-console.log(amount);
-  }
-
 const boxesEl = document.querySelector("#boxes");
 
 const createButtonEl = document.querySelector("[data-create]");
 
 createButtonEl.addEventListener("click", createBoxes);
+
+const amount = Number(document.querySelector("input").value);
 
 function createBoxes(amount) {
   const elements = [];
