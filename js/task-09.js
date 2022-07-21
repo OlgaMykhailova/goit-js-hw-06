@@ -8,8 +8,9 @@ const spanEl = document.querySelector('.color');
 buttonEl.addEventListener('click', onButtonClick);
 
 function onButtonClick() {
-document.body.style.backgroundColor = getRandomHexColor();
-spanEl.textContent = getRandomHexColor();
+const currentColor = getRandomHexColor();
+document.body.style.backgroundColor = currentColor;
+spanEl.textContent = currentColor;
 }
 
 
